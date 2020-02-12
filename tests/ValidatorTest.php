@@ -22,7 +22,7 @@ class ValidatorTest extends TestCase
 
         $validator->addArrayConstraint(new Callback(function($record, ExecutionContextInterface $context) {
             if (count($record) !== 5) {
-                $context->addViolation('The record must contain 5 columns');
+                $context->addViolation('The array must contain 5 columns');
             }
         }));
 
@@ -33,7 +33,7 @@ class ValidatorTest extends TestCase
         $record = [1, 2, 3, 4, 5, 6];
         $result = $validator->validate($record);
         $this->assertFalse($result);
-        $this->assertEquals('The record must contain 5 columns', $validator->getErrors()[0]);
+        $this->assertEquals('The array must contain 5 columns', $validator->getErrors()[0]);
     }
 
     public function testValidatingArrayElementsDate(): void

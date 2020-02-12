@@ -59,6 +59,7 @@ class Validator
 
     public function validate(array $array): bool
     {
+        $this->errors = [];
         $this->validateArray($array);
         $this->validateArrayElements($array);
 
