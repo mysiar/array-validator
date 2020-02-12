@@ -1,10 +1,10 @@
 # mysiar/array-validator
 
-For usage check ValidatorTest.php file
-
 # Usage
 
 * example
+
+
     ```php
     
     use Mysiar\ArrayValidator\Validator;
@@ -21,7 +21,7 @@ For usage check ValidatorTest.php file
     
     $validator->addArrayConstraint(new Callback(function($record, ExecutionContextInterface $context) {
         if (count($record) !== 15) {
-            $context->addViolation(sprintf('The array must contain %s columns', self::FIELDS_COUNT));
+            $context->addViolation(sprintf('The array must contain %s columns', 15));
         }
     }));
     
@@ -43,7 +43,7 @@ For usage check ValidatorTest.php file
     ```
 
 
-* in case you use function `fgetcsv` to read csv file line by line to validate Choice of values in the array element you may need to use
+* notice: in case you use function `fgetcsv` to read csv file line by line to validate Choice of values in the array element you may need to use
     ```
     $validator->addArrayElementConstraint(2, new Choice(["0", "1"]));
     ```
@@ -52,5 +52,5 @@ For usage check ValidatorTest.php file
     $validator->addArrayElementConstraint(2, new Choice([0, 1]));
     ```
 
-### Notice
-this lib is inspired by [deblan/csv-validator](https://gitnet.fr/deblan/csv-validator)
+### Credits
+Created by [Piotr Synowiec](https://github.com/mysiar), inspired by [deblan/csv-validator](https://gitnet.fr/deblan/csv-validator)
