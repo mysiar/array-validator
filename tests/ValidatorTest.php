@@ -47,7 +47,7 @@ class ValidatorTest extends TestCase
         $validator->addArrayElementConstraint(2, new Date());
         $result = $validator->validate($record);
         $this->assertFalse($result);
-        $this->assertEquals('This value is not a valid date.', $validator->getErrors()[0]);
+        $this->assertEquals('index 2 : This value is not a valid date.', $validator->getErrors()[0]);
     }
 
     public function testValidatingArrayElementsEmail(): void
@@ -62,7 +62,7 @@ class ValidatorTest extends TestCase
         $validator->addArrayElementConstraint(3, new Email());
         $result = $validator->validate($record);
         $this->assertFalse($result);
-        $this->assertEquals('This value is not a valid email address.', $validator->getErrors()[0]);
+        $this->assertEquals('index 3 : This value is not a valid email address.', $validator->getErrors()[0]);
     }
 
     public function testValidatingArrayElementsNotBlank(): void
@@ -78,7 +78,7 @@ class ValidatorTest extends TestCase
         $validator->addArrayElementConstraint(3, new NotBlank());
         $result = $validator->validate($record);
         $this->assertFalse($result);
-        $this->assertEquals('This value should not be blank.', $validator->getErrors()[0]);
+        $this->assertEquals('index 3 : This value should not be blank.', $validator->getErrors()[0]);
     }
 
     public function testValidatingArrayElementsInArray(): void
@@ -93,6 +93,6 @@ class ValidatorTest extends TestCase
         $validator->addArrayElementConstraint(2, new Choice([0, 1]));
         $result = $validator->validate($record);
         $this->assertFalse($result);
-        $this->assertEquals('The value you selected is not a valid choice.', $validator->getErrors()[0]);
+        $this->assertEquals('index 2 : The value you selected is not a valid choice.', $validator->getErrors()[0]);
     }
 }

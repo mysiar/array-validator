@@ -87,7 +87,7 @@ class Validator
             } else {
                 foreach ($constraints as $constraint) {
                     $violations = $this->validator->validate($array[$key], $constraint);
-                    $this->addValidationErrors($violations);
+                    $this->addValidationElementErrors($key, $violations);
                 }
             }
         }
@@ -97,6 +97,13 @@ class Validator
     {
         foreach ($violations as $violation) {
             $this->errors[] = $violation->getMessage();
+        }
+    }
+
+    private function addValidationElementErrors(int $key, ConstraintViolationListInterface $violations): void
+    {
+        foreach ($violations as $violation) {
+            $this->errors[] = sprintf('index %d : %s', $key, $violation->getMessage());
         }
     }
 }
