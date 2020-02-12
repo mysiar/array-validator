@@ -1,0 +1,39 @@
+{
+    "name": "mysiar/array-validator",
+    "description": "Array Validator",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Piotr Synowiec",
+            "email": "psynowiec@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "symfony/validator": "^4.4"
+    },
+    "require-dev": {
+        "mysiar/coding-standard": "^1.1",
+        "phpunit/phpunit": "^9.0",
+        "jakub-onderka/php-parallel-lint": "^1.0",
+        "symfony/var-dumper": "^4.4"
+    },
+    "autoload": {
+        "psr-4": { "Mysiar\\ArrayValidator\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Mysiar\\ArrayValidatorTests\\": "tests/" }
+    },
+    "scripts": {
+        "phpcs": "phpcs --standard=./ruleset.xml --extensions=php src/",
+        "phpcbf":"phpcbf --standard=./ruleset.xml --extensions=php src/",
+        "php-lint": "parallel-lint --exclude tests/app --exclude vendor .",
+        "phpunit": "phpunit --no-coverage",
+        "test": [
+            "@php-lint",
+            "@phpcs",
+            "@phpunit"
+        ]
+    }
+}
