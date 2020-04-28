@@ -14,7 +14,6 @@ matrix:
 install:
   - php ./tests/symfony-version.php "$SYMFONY_VERSION"
   - composer install
-  - composer show
 
 test:
   - ./vendor/bin/phpunit
