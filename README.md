@@ -1,5 +1,7 @@
 # mysiar/array-validator
 
+[![Build Status](https://travis-ci.org/mysiar/array-validator.svg?branch=master)](https://travis-ci.org/mysiar/array-validator)
+
 # Usage
 
 * example

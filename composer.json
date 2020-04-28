@@ -11,11 +11,11 @@
     ],
     "require": {
         "php": "^7.2",
-        "symfony/validator": "^4.4"
+        "symfony/validator": "^4.4|^5.0"
     },
     "require-dev": {
         "mysiar/coding-standard": "^1.1",
-        "phpunit/phpunit": "^9.0",
+        "phpunit/phpunit": "^8.0",
         "jakub-onderka/php-parallel-lint": "^1.0",
         "symfony/var-dumper": "^4.4"
     },
